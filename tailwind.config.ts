@@ -7,21 +7,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brazil: {
-          blue: "#063B8E",
-          navy: "#08275E",
-          green: "#179B4C",
-          yellow: "#F7C600",
-          leaf: "#0E7F3B",
-          cream: "#F8F4E8",
+        us: {
+          blue: "#2457C5",
+          navy: "#071B4A",
+          red: "#D7282F",
+          white: "#FFFFFF",
+          cream: "#F6F8FC",
         },
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Archivo Black", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Noto Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Archivo Black", "Noto Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        card: "0 18px 48px rgba(8, 39, 94, 0.12)",
+        card: "0 18px 48px rgba(7, 27, 74, 0.12)",
       },
     },
   },
