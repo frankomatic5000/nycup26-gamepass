@@ -1,38 +1,35 @@
-# NYCUP26
+# NYCUP26 GAME PASS
 
-Prototype Next.js + TypeScript + Tailwind build for a World Cup-related bracelet/pass site.
+Premium mobile-first landing page for `nycup26.com`.
 
-## What’s in this first pass
-- Mobile-first public homepage
-- Email signup prototype
-- Data-driven venue directory with client-side month filtering
-- External ticket link cards
-- Pickup instructions placeholder
-- Sponsor placeholder section
-- FAQ
+NYCUP26 GAME PASS is a visitor bracelet/pass concept for World Cup 2026 fans in New York City. The page presents the waitlist, bracelet value proposition, venue network, pickup/ticketing placeholders, sponsor path, and multilingual signup structure.
 
-## Placeholder items still TBD
-- Final domain
-- Event dates
-- Ticket platform
-- Pickup location
-- Confirmed venues
-- Sponsor list
-- Languages
+## Stack
 
-## Local development
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn-style local UI primitives
+- Lucide icons
+
+## Local Development
+
 ```bash
 npm install
 npm run dev
 ```
 
 ## Verification
+
 ```bash
 npm run lint
 npm run build
 ```
 
 ## Notes
-- Venue, ticket, sponsor, and FAQ content live in `src/data/site.ts`.
-- The current signup form is prototype-only and does not connect to an email service yet.
-- Do not deploy to production until business placeholders are confirmed.
+
+- The Statue of Liberty hero image lives at `public/nycup26-hero.png`.
+- The ticker bar currently uses editable local placeholder items. Real-time matches, scores, and event feeds need an approved data source before integration.
+- Benefits, pickup location, ticketing platform, and partner offers are placeholder language until confirmed.
+- NYCUP26 GAME PASS is an independent visitor pass concept and is not an official FIFA website.
