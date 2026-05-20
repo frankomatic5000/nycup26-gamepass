@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;600;700;800;900&display=swap");
+@config "../tailwind.config.ts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: #f8f4e8;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(247, 198, 0, 0.35);
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16;
+  }
+
+  .ticker-track {
+    @apply flex min-w-0 flex-1 overflow-hidden whitespace-nowrap;
+  }
+
+  .ticker-track > div {
+    animation: ticker-scroll 44s linear infinite;
+  }
+
+  .ticker-track:hover > div {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track > div {
+    animation: none;
+  }
+}
