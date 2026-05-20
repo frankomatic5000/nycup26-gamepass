@@ -229,7 +229,7 @@ function App() {
           </div>
           <a
             href="#signup"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-us-white px-5 text-sm font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-white px-5 text-sm font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
           >
             Waitlist
           </a>
@@ -252,7 +252,7 @@ function App() {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,74,0.98)_0%,rgba(7,27,74,0.86)_36%,rgba(7,27,74,0.20)_70%,rgba(7,27,74,0.16)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,74,0.10)_0%,rgba(7,27,74,0.04)_42%,rgba(7,27,74,0.74)_100%)]" />
           <div className="absolute inset-x-0 top-0 h-3 bg-gradient-to-r from-us-red via-white to-us-blue opacity-95" />
-          <div className="absolute right-[8%] top-[18%] hidden rounded-full border border-us-white/60 bg-us-white/18 px-4 py-2 text-xs font-black uppercase text-us-white backdrop-blur-md md:block">
+          <div className="absolute right-[8%] top-[18%] hidden rounded-full border border-white/30 bg-us-navy/80 px-4 py-2 text-xs font-black uppercase text-white backdrop-blur-md md:block">
             Bracelet unlock signal
           </div>
         </div>
@@ -263,24 +263,24 @@ function App() {
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               Unlock NYC during the World Cup.
             </div>
-            <h1 className="font-display text-5xl leading-[0.95] text-white sm:text-6xl md:text-8xl">
+            <h1 className="font-display text-5xl uppercase leading-[0.95] text-white sm:text-6xl md:text-8xl">
               Your bracelet unlocks the city.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-white/88 md:text-xl">
+            <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-white/90 md:text-xl">
               A festival-style visitor bracelet for World Cup fans in NYC: watch parties, curated venues,
               food and nightlife perks, sponsor moments, and a simple path to early access.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#signup"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-us-white px-6 text-base font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-6 text-base font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
               >
                 Join the waitlist
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
               <a
                 href="#venues"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/24 bg-white/10 px-6 text-base font-extrabold text-white backdrop-blur-sm transition hover:bg-white/16"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/30 bg-us-blue/85 px-6 text-base font-extrabold text-white backdrop-blur-sm transition hover:bg-us-blue"
               >
                 Explore venues
               </a>
@@ -296,12 +296,12 @@ function App() {
       </section>
 
       <section className="mx-auto -mt-6 max-w-7xl px-5 md:px-8">
-        <div className="grid gap-6 rounded-2xl border border-us-white/40 bg-white p-6 shadow-card md:grid-cols-[1fr_1.4fr] md:p-8">
+        <div className="grid gap-6 rounded-2xl border border-us-blue/10 bg-white p-6 shadow-card md:grid-cols-[1fr_1.4fr] md:p-8">
           <div>
             <p className="text-sm font-black uppercase text-us-red">The concept</p>
             <h2 className="mt-2 font-display text-3xl leading-tight text-us-blue">A bracelet that doubles as a city guide.</h2>
           </div>
-          <p className="text-base font-semibold leading-7 text-us-navy/72">
+          <p className="text-base font-semibold leading-7 text-us-navy/70">
             Visitors choose dates, see relevant venues, and follow a simple path from signup to pickup. The design is
             clean, practical, and built to launch fast.
           </p>
@@ -387,7 +387,7 @@ function App() {
             <div key={title} className="rounded-2xl border border-us-blue/10 bg-white p-5 shadow-card">
               <Icon className="h-8 w-8 text-us-red" aria-hidden="true" />
               <h3 className="mt-5 font-display text-xl leading-tight text-us-blue">{title}</h3>
-              <p className="mt-2 text-sm font-semibold leading-6 text-us-navy/64">{text}</p>
+              <p className="mt-2 text-sm font-semibold leading-6 text-us-navy/70">{text}</p>
             </div>
           ))}
         </div>
@@ -411,9 +411,9 @@ function App() {
       <section id="partners" className="section-shell">
         <div className="flag-band grid gap-6 rounded-2xl p-6 text-white md:grid-cols-[1.1fr_0.9fr] md:p-8">
           <div>
-            <p className="text-sm font-black uppercase text-white/76">Sponsors / Partners</p>
+            <p className="text-sm font-black uppercase text-white/75">Sponsors / Partners</p>
             <h2 className="mt-3 font-display text-3xl leading-tight text-white md:text-5xl">Become a sponsor</h2>
-            <p className="mt-4 max-w-2xl font-semibold leading-7 text-white/78">
+            <p className="mt-4 max-w-2xl font-semibold leading-7 text-white">
               The layout reserves space for partners, community organizations, and local businesses that want to reach
               World Cup visitors.
             </p>
@@ -446,7 +446,7 @@ function App() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 aria-invalid={status === "error"}
-                className="h-12 w-full rounded-md border border-us-blue/18 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/42 focus:outline-none focus:ring-2 focus:ring-us-red"
+                className="h-12 w-full rounded-md border border-us-blue/20 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/40 focus:outline-none focus:ring-2 focus:ring-us-red"
               />
             </div>
 
@@ -457,7 +457,7 @@ function App() {
                   id="language"
                   value={language}
                   onChange={(event) => setLanguage(event.target.value)}
-                  className="h-12 w-full appearance-none rounded-md border border-us-blue/18 bg-white px-4 text-base text-us-navy focus:outline-none focus:ring-2 focus:ring-us-red"
+                  className="h-12 w-full appearance-none rounded-md border border-us-blue/20 bg-white px-4 text-base text-us-navy focus:outline-none focus:ring-2 focus:ring-us-red"
                 >
                   <option>English</option>
                   <option>Portuguese</option>
@@ -474,13 +474,13 @@ function App() {
                   placeholder="June 20 - June 27"
                   value={travelStart && travelEnd ? `${travelStart} to ${travelEnd}` : ""}
                   onChange={() => undefined}
-                  className="h-12 w-full rounded-md border border-us-blue/18 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/42 focus:outline-none focus:ring-2 focus:ring-us-red"
+                  className="h-12 w-full rounded-md border border-us-blue/20 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/40 focus:outline-none focus:ring-2 focus:ring-us-red"
                 />
                 <p className="mt-2 text-xs font-semibold text-us-navy/50">Use the filter above to change the venue window.</p>
               </div>
             </div>
 
-            <p className={status === "error" ? "text-sm font-bold text-red-700" : "text-sm font-bold text-us-navy/62"} aria-live="polite">
+            <p className={status === "error" ? "text-sm font-bold text-red-700" : "text-sm font-bold text-us-navy/60"} aria-live="polite">
               {signupMessage}
             </p>
 
@@ -510,7 +510,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="border-t border-us-blue/10 bg-us-cream px-5 py-8 text-center text-sm font-semibold text-us-navy/54">
+      <footer className="border-t border-us-blue/10 bg-us-cream px-5 py-8 text-center text-sm font-semibold text-us-navy/60">
         <p>NYCUP26 GAME PASS is an independent visitor pass concept and is not an official FIFA website.</p>
       </footer>
     </main>
@@ -519,10 +519,10 @@ function App() {
 
 function StatCard({ icon: Icon, label, value }: { icon: typeof CalendarDays; label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/18 bg-white/12 p-4 backdrop-blur-sm">
-      <Icon className="h-5 w-5 text-us-white" aria-hidden="true" />
-      <p className="mt-3 text-xs font-black uppercase text-white/56">{label}</p>
-      <p className="mt-1 text-sm font-black text-white">{value}</p>
+    <div className="rounded-2xl border border-white/80 bg-white p-4 text-us-navy shadow-card">
+      <Icon className="h-5 w-5 text-us-red" aria-hidden="true" />
+      <p className="mt-3 text-xs font-black uppercase text-us-navy/60">{label}</p>
+      <p className="mt-1 text-sm font-black text-us-blue">{value}</p>
     </div>
   );
 }
@@ -533,14 +533,14 @@ function TickerItems({ ariaHidden = false }: { ariaHidden?: boolean }) {
       {tickerItems.map((item, index) => (
         <div key={`${item.label}-${index}`} className="flex items-center gap-3 px-5 text-sm font-extrabold">
           {index % 3 === 0 ? (
-            <Clock3 className="h-4 w-4 text-us-white" aria-hidden="true" />
+            <Clock3 className="h-4 w-4 text-white" aria-hidden="true" />
           ) : index % 3 === 1 ? (
-            <Ticket className="h-4 w-4 text-us-white" aria-hidden="true" />
+            <Ticket className="h-4 w-4 text-white" aria-hidden="true" />
           ) : (
-            <Gift className="h-4 w-4 text-us-white" aria-hidden="true" />
+            <Gift className="h-4 w-4 text-white" aria-hidden="true" />
           )}
-          <span className="uppercase text-us-white">{item.label}</span>
-          <span className="text-white/78">{item.value}</span>
+          <span className="uppercase text-white">{item.label}</span>
+          <span className="text-white">{item.value}</span>
         </div>
       ))}
     </div>
@@ -551,8 +551,8 @@ function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: stri
   return (
     <div className="max-w-3xl">
       <p className="text-sm font-black uppercase text-us-red">{eyebrow}</p>
-      <h2 className="mt-3 font-display text-3xl leading-tight text-us-blue md:text-5xl">{title}</h2>
-      {text ? <p className="mt-4 text-base font-semibold leading-7 text-us-navy/64">{text}</p> : null}
+      <h2 className="mt-3 font-display text-3xl uppercase leading-tight text-us-blue md:text-5xl">{title}</h2>
+      {text ? <p className="mt-4 text-base font-semibold leading-7 text-us-navy/70">{text}</p> : null}
     </div>
   );
 }
@@ -562,7 +562,7 @@ function MetaRow({ icon: Icon, label, value }: { icon: typeof Clock3; label: str
     <div className="flex items-start gap-3">
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-us-red" aria-hidden="true" />
       <div>
-        <p className="text-xs font-black uppercase text-us-navy/44">{label}</p>
+        <p className="text-xs font-black uppercase text-us-navy/50">{label}</p>
         <p className="text-sm font-extrabold text-us-blue">{value}</p>
       </div>
     </div>
@@ -577,7 +577,7 @@ function DateField({ label, value, onChange }: { label: string; value: string; o
         type="date"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-12 rounded-md border border-us-blue/18 bg-white px-4 text-us-navy focus:outline-none focus:ring-2 focus:ring-us-red"
+        className="h-12 rounded-md border border-us-blue/20 bg-white px-4 text-us-navy focus:outline-none focus:ring-2 focus:ring-us-red"
       />
     </label>
   );
@@ -585,10 +585,10 @@ function DateField({ label, value, onChange }: { label: string; value: string; o
 
 function InfoPanel({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return (
-    <div className="rounded-2xl border border-white/14 bg-white/8 p-5">
-      <p className="text-sm font-black uppercase text-us-white">{eyebrow}</p>
+    <div className="rounded-2xl border border-white/20 bg-white/10 p-5">
+      <p className="text-sm font-black uppercase text-white">{eyebrow}</p>
       <h2 className="mt-2 font-display text-2xl leading-tight text-white">{title}</h2>
-      <p className="mt-3 font-semibold leading-7 text-white/74">{text}</p>
+      <p className="mt-3 font-semibold leading-7 text-white/75">{text}</p>
     </div>
   );
 }

@@ -16,8 +16,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Archivo Black", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Noto Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Archivo Black", "Noto Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
         card: "0 18px 48px rgba(7, 27, 74, 0.12)",
