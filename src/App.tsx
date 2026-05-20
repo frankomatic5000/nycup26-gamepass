@@ -202,11 +202,11 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen bg-brazil-cream text-brazil-navy">
-      <header className="sticky top-0 z-40 border-b border-brazil-blue/10 bg-white/92 backdrop-blur">
-        <div className="border-b border-brazil-yellow/40 bg-brazil-navy text-white">
+    <main className="min-h-screen bg-us-cream text-us-navy">
+      <header className="sticky top-0 z-40 border-b border-us-blue/10 bg-white/92 backdrop-blur">
+        <div className="flag-band border-b border-white/20 text-white">
           <div className="flex h-11 items-center overflow-hidden">
-            <div className="flex h-full shrink-0 items-center gap-2 bg-brazil-green px-4 text-xs font-black uppercase text-white">
+            <div className="flex h-full shrink-0 items-center gap-2 bg-us-red px-4 text-xs font-black uppercase text-white">
               <Radio className="h-4 w-4" aria-hidden="true" />
               Live Board
             </div>
@@ -218,25 +218,25 @@ function App() {
         </div>
 
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-          <a href="#top" className="font-display text-lg leading-none text-brazil-blue">
-            NYCUP26 <span className="text-brazil-green">GAME PASS</span>
+          <a href="#top" className="font-display text-lg leading-none text-us-blue">
+            NYCUP26 <span className="text-us-red">GAME PASS</span>
           </a>
-          <div className="hidden items-center gap-6 text-sm font-extrabold text-brazil-blue md:flex">
-            <a href="#venues" className="hover:text-brazil-green">Venues</a>
-            <a href="#how-it-works" className="hover:text-brazil-green">How it works</a>
-            <a href="#partners" className="hover:text-brazil-green">Partners</a>
-            <a href="#faq" className="hover:text-brazil-green">FAQ</a>
+          <div className="hidden items-center gap-6 text-sm font-extrabold text-us-blue md:flex">
+            <a href="#venues" className="hover:text-us-red">Venues</a>
+            <a href="#how-it-works" className="hover:text-us-red">How it works</a>
+            <a href="#partners" className="hover:text-us-red">Partners</a>
+            <a href="#faq" className="hover:text-us-red">FAQ</a>
           </div>
           <a
             href="#signup"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-brazil-yellow px-5 text-sm font-extrabold text-brazil-navy transition hover:bg-[#ffd93f]"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-us-white px-5 text-sm font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
           >
             Waitlist
           </a>
         </nav>
       </header>
 
-      <section id="top" className="relative overflow-hidden bg-brazil-navy text-white">
+      <section id="top" className="relative overflow-hidden bg-us-navy text-white">
         <div className="absolute inset-0">
           <img
             src="/nycup26-hero.png"
@@ -247,18 +247,19 @@ function App() {
           <img
             src="/nycup26-hero.png"
             alt="Statue of Liberty holding a soccer trophy with a glowing NYCUP26 Game Pass bracelet"
-            className="absolute inset-y-0 right-0 h-full w-full object-contain object-right opacity-100 drop-shadow-[0_30px_80px_rgba(245,184,59,0.30)]"
+            className="absolute inset-y-0 right-0 h-full w-full object-contain object-right opacity-100 drop-shadow-[0_30px_80px_rgba(215,40,47,0.34)]"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,17,61,0.98)_0%,rgba(36,17,61,0.86)_36%,rgba(36,17,61,0.20)_70%,rgba(36,17,61,0.16)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(36,17,61,0.10)_0%,rgba(36,17,61,0.04)_42%,rgba(36,17,61,0.74)_100%)]" />
-          <div className="absolute right-[8%] top-[18%] hidden rounded-full border border-brazil-yellow/60 bg-brazil-yellow/18 px-4 py-2 text-xs font-black uppercase text-brazil-yellow backdrop-blur-md md:block">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,74,0.98)_0%,rgba(7,27,74,0.86)_36%,rgba(7,27,74,0.20)_70%,rgba(7,27,74,0.16)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,74,0.10)_0%,rgba(7,27,74,0.04)_42%,rgba(7,27,74,0.74)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-3 bg-gradient-to-r from-us-red via-white to-us-blue opacity-95" />
+          <div className="absolute right-[8%] top-[18%] hidden rounded-full border border-us-white/60 bg-us-white/18 px-4 py-2 text-xs font-black uppercase text-us-white backdrop-blur-md md:block">
             Bracelet unlock signal
           </div>
         </div>
 
         <div className="relative mx-auto grid min-h-[calc(100vh-120px)] max-w-7xl content-end px-5 pb-12 pt-24 md:min-h-[760px] md:px-8 md:pb-16">
           <div className="max-w-3xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-brazil-green px-3 py-2 text-sm font-black text-white">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-us-red px-3 py-2 text-sm font-black text-white">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               Unlock NYC during the World Cup.
             </div>
@@ -272,7 +273,7 @@ function App() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#signup"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-brazil-yellow px-6 text-base font-extrabold text-brazil-navy transition hover:bg-[#ffd36a]"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-us-white px-6 text-base font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
               >
                 Join the waitlist
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -295,12 +296,12 @@ function App() {
       </section>
 
       <section className="mx-auto -mt-6 max-w-7xl px-5 md:px-8">
-        <div className="grid gap-6 rounded-2xl border border-brazil-yellow/40 bg-white p-6 shadow-card md:grid-cols-[1fr_1.4fr] md:p-8">
+        <div className="grid gap-6 rounded-2xl border border-us-white/40 bg-white p-6 shadow-card md:grid-cols-[1fr_1.4fr] md:p-8">
           <div>
-            <p className="text-sm font-black uppercase text-brazil-green">The concept</p>
-            <h2 className="mt-2 font-display text-3xl leading-tight text-brazil-blue">A bracelet that doubles as a city guide.</h2>
+            <p className="text-sm font-black uppercase text-us-red">The concept</p>
+            <h2 className="mt-2 font-display text-3xl leading-tight text-us-blue">A bracelet that doubles as a city guide.</h2>
           </div>
-          <p className="text-base font-semibold leading-7 text-brazil-navy/72">
+          <p className="text-base font-semibold leading-7 text-us-navy/72">
             Visitors choose dates, see relevant venues, and follow a simple path from signup to pickup. The design is
             clean, practical, and built to launch fast.
           </p>
@@ -315,11 +316,11 @@ function App() {
         />
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
           {steps.map((step, index) => (
-            <div key={step} className="rounded-xl border border-brazil-blue/10 bg-white p-5 shadow-card">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-brazil-blue font-black text-white">
+            <div key={step} className="rounded-xl border border-us-blue/10 bg-white p-5 shadow-card">
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-us-blue font-black text-white">
                 {index + 1}
               </div>
-              <p className="mt-4 text-sm font-extrabold leading-6 text-brazil-blue">{step}</p>
+              <p className="mt-4 text-sm font-extrabold leading-6 text-us-blue">{step}</p>
             </div>
           ))}
         </div>
@@ -340,18 +341,18 @@ function App() {
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {filteredVenues.map((venue) => (
-            <article key={venue.name} className="overflow-hidden rounded-2xl border border-brazil-blue/10 bg-brazil-cream shadow-card">
-              <div className="h-2 bg-gradient-to-r from-brazil-green to-brazil-yellow" />
+            <article key={venue.name} className="overflow-hidden rounded-2xl border border-us-blue/10 bg-us-cream shadow-card">
+              <div className="h-2 bg-gradient-to-r from-us-red via-white to-us-blue" />
               <div className="p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs font-black uppercase tracking-[0.2em] text-brazil-green">{venue.category}</p>
-                    <h3 className="mt-2 font-display text-2xl leading-tight text-brazil-blue">{venue.name}</h3>
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-us-red">{venue.category}</p>
+                    <h3 className="mt-2 font-display text-2xl leading-tight text-us-blue">{venue.name}</h3>
                   </div>
-                  <MapPin className="h-5 w-5 shrink-0 text-brazil-blue" aria-hidden="true" />
+                  <MapPin className="h-5 w-5 shrink-0 text-us-blue" aria-hidden="true" />
                 </div>
 
-                <p className="mt-4 text-sm font-semibold leading-6 text-brazil-navy/70">{venue.benefit}</p>
+                <p className="mt-4 text-sm font-semibold leading-6 text-us-navy/70">{venue.benefit}</p>
 
                 <div className="mt-5 grid gap-3 rounded-xl bg-white p-4">
                   <MetaRow icon={Clock3} label="Neighborhood" value={venue.neighborhood} />
@@ -362,7 +363,7 @@ function App() {
                   href={venue.mapUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-brazil-blue hover:text-brazil-green"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-us-blue hover:text-us-red"
                 >
                   Open map
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -373,7 +374,7 @@ function App() {
         </div>
 
         {filteredVenues.length === 0 ? (
-          <div className="mt-6 rounded-xl border border-dashed border-brazil-blue/20 bg-brazil-cream p-6 text-sm font-semibold text-brazil-navy/70">
+          <div className="mt-6 rounded-xl border border-dashed border-us-blue/20 bg-us-cream p-6 text-sm font-semibold text-us-navy/70">
             No venues match that travel window yet.
           </div>
         ) : null}
@@ -383,16 +384,16 @@ function App() {
         <SectionHeading eyebrow="Bracelet superpowers" title="What users get from the pass." />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {superpowers.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="rounded-2xl border border-brazil-blue/10 bg-white p-5 shadow-card">
-              <Icon className="h-8 w-8 text-brazil-green" aria-hidden="true" />
-              <h3 className="mt-5 font-display text-xl leading-tight text-brazil-blue">{title}</h3>
-              <p className="mt-2 text-sm font-semibold leading-6 text-brazil-navy/64">{text}</p>
+            <div key={title} className="rounded-2xl border border-us-blue/10 bg-white p-5 shadow-card">
+              <Icon className="h-8 w-8 text-us-red" aria-hidden="true" />
+              <h3 className="mt-5 font-display text-xl leading-tight text-us-blue">{title}</h3>
+              <p className="mt-2 text-sm font-semibold leading-6 text-us-navy/64">{text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-brazil-blue text-white">
+      <section className="bg-us-blue text-white">
         <div className="section-shell grid gap-4 md:grid-cols-2">
           <InfoPanel
             eyebrow="Pickup"
@@ -408,19 +409,19 @@ function App() {
       </section>
 
       <section id="partners" className="section-shell">
-        <div className="grid gap-6 rounded-2xl bg-brazil-yellow p-6 md:grid-cols-[1.1fr_0.9fr] md:p-8">
+        <div className="flag-band grid gap-6 rounded-2xl p-6 text-white md:grid-cols-[1.1fr_0.9fr] md:p-8">
           <div>
-            <p className="text-sm font-black uppercase text-brazil-blue">Sponsors / Partners</p>
-            <h2 className="mt-3 font-display text-3xl leading-tight text-brazil-navy md:text-5xl">Become a sponsor</h2>
-            <p className="mt-4 max-w-2xl font-semibold leading-7 text-brazil-navy/72">
+            <p className="text-sm font-black uppercase text-white/76">Sponsors / Partners</p>
+            <h2 className="mt-3 font-display text-3xl leading-tight text-white md:text-5xl">Become a sponsor</h2>
+            <p className="mt-4 max-w-2xl font-semibold leading-7 text-white/78">
               The layout reserves space for partners, community organizations, and local businesses that want to reach
               World Cup visitors.
             </p>
           </div>
           <div className="grid gap-2">
             {partnerTypes.map((type) => (
-              <div key={type} className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 text-sm font-black text-brazil-blue">
-                <CheckCircle2 className="h-4 w-4 text-brazil-green" aria-hidden="true" />
+              <div key={type} className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 text-sm font-black text-us-blue">
+                <CheckCircle2 className="h-4 w-4 text-us-red" aria-hidden="true" />
                 {type}
               </div>
             ))}
@@ -435,9 +436,9 @@ function App() {
             title="Collect leads before launch."
             text="The form supports simple validation and a success state without extra backend plumbing."
           />
-          <form className="grid gap-4 rounded-2xl border border-brazil-blue/10 bg-brazil-cream p-5 shadow-card md:p-6" onSubmit={handleSubmit} noValidate>
+          <form className="grid gap-4 rounded-2xl border border-us-blue/10 bg-us-cream p-5 shadow-card md:p-6" onSubmit={handleSubmit} noValidate>
             <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-extrabold text-brazil-blue">Email</label>
+              <label htmlFor="email" className="mb-2 block text-sm font-extrabold text-us-blue">Email</label>
               <input
                 id="email"
                 type="email"
@@ -445,47 +446,47 @@ function App() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 aria-invalid={status === "error"}
-                className="h-12 w-full rounded-md border border-brazil-blue/18 bg-white px-4 text-base text-brazil-navy placeholder:text-brazil-navy/42 focus:outline-none focus:ring-2 focus:ring-brazil-yellow"
+                className="h-12 w-full rounded-md border border-us-blue/18 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/42 focus:outline-none focus:ring-2 focus:ring-us-red"
               />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="relative">
-                <label htmlFor="language" className="mb-2 block text-sm font-extrabold text-brazil-blue">Language</label>
+                <label htmlFor="language" className="mb-2 block text-sm font-extrabold text-us-blue">Language</label>
                 <select
                   id="language"
                   value={language}
                   onChange={(event) => setLanguage(event.target.value)}
-                  className="h-12 w-full appearance-none rounded-md border border-brazil-blue/18 bg-white px-4 text-base text-brazil-navy focus:outline-none focus:ring-2 focus:ring-brazil-yellow"
+                  className="h-12 w-full appearance-none rounded-md border border-us-blue/18 bg-white px-4 text-base text-us-navy focus:outline-none focus:ring-2 focus:ring-us-red"
                 >
                   <option>English</option>
                   <option>Portuguese</option>
                   <option>Spanish</option>
                 </select>
-                <ChevronDown className="pointer-events-none absolute bottom-3.5 right-3 h-5 w-5 text-brazil-blue/60" aria-hidden="true" />
+                <ChevronDown className="pointer-events-none absolute bottom-3.5 right-3 h-5 w-5 text-us-blue/60" aria-hidden="true" />
               </div>
 
               <div>
-                <label htmlFor="window" className="mb-2 block text-sm font-extrabold text-brazil-blue">Visit dates</label>
+                <label htmlFor="window" className="mb-2 block text-sm font-extrabold text-us-blue">Visit dates</label>
                 <input
                   id="window"
                   type="text"
                   placeholder="June 20 - June 27"
                   value={travelStart && travelEnd ? `${travelStart} to ${travelEnd}` : ""}
                   onChange={() => undefined}
-                  className="h-12 w-full rounded-md border border-brazil-blue/18 bg-white px-4 text-base text-brazil-navy placeholder:text-brazil-navy/42 focus:outline-none focus:ring-2 focus:ring-brazil-yellow"
+                  className="h-12 w-full rounded-md border border-us-blue/18 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/42 focus:outline-none focus:ring-2 focus:ring-us-red"
                 />
-                <p className="mt-2 text-xs font-semibold text-brazil-navy/50">Use the filter above to change the venue window.</p>
+                <p className="mt-2 text-xs font-semibold text-us-navy/50">Use the filter above to change the venue window.</p>
               </div>
             </div>
 
-            <p className={status === "error" ? "text-sm font-bold text-red-700" : "text-sm font-bold text-brazil-navy/62"} aria-live="polite">
+            <p className={status === "error" ? "text-sm font-bold text-red-700" : "text-sm font-bold text-us-navy/62"} aria-live="polite">
               {signupMessage}
             </p>
 
             <button
               type="submit"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-brazil-blue px-6 text-base font-extrabold text-white transition hover:bg-brazil-navy"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-us-blue px-6 text-base font-extrabold text-white transition hover:bg-us-navy"
             >
               <Languages className="h-5 w-5" aria-hidden="true" />
               Get early access
@@ -498,18 +499,18 @@ function App() {
         <SectionHeading eyebrow="FAQ" title="Quick answers for first-time visitors." />
         <div className="grid gap-3">
           {faqItems.map((item) => (
-            <details key={item.question} className="group rounded-2xl border border-brazil-blue/10 bg-white p-5 shadow-card">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-extrabold text-brazil-blue">
+            <details key={item.question} className="group rounded-2xl border border-us-blue/10 bg-white p-5 shadow-card">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-extrabold text-us-blue">
                 <span>{item.question}</span>
-                <Megaphone className="h-5 w-5 shrink-0 text-brazil-green transition group-open:rotate-12" aria-hidden="true" />
+                <Megaphone className="h-5 w-5 shrink-0 text-us-red transition group-open:rotate-12" aria-hidden="true" />
               </summary>
-              <p className="mt-3 max-w-3xl text-sm font-semibold leading-7 text-brazil-navy/70">{item.answer}</p>
+              <p className="mt-3 max-w-3xl text-sm font-semibold leading-7 text-us-navy/70">{item.answer}</p>
             </details>
           ))}
         </div>
       </section>
 
-      <footer className="border-t border-brazil-blue/10 bg-brazil-cream px-5 py-8 text-center text-sm font-semibold text-brazil-navy/54">
+      <footer className="border-t border-us-blue/10 bg-us-cream px-5 py-8 text-center text-sm font-semibold text-us-navy/54">
         <p>NYCUP26 GAME PASS is an independent visitor pass concept and is not an official FIFA website.</p>
       </footer>
     </main>
@@ -519,7 +520,7 @@ function App() {
 function StatCard({ icon: Icon, label, value }: { icon: typeof CalendarDays; label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-white/18 bg-white/12 p-4 backdrop-blur-sm">
-      <Icon className="h-5 w-5 text-brazil-yellow" aria-hidden="true" />
+      <Icon className="h-5 w-5 text-us-white" aria-hidden="true" />
       <p className="mt-3 text-xs font-black uppercase text-white/56">{label}</p>
       <p className="mt-1 text-sm font-black text-white">{value}</p>
     </div>
@@ -532,13 +533,13 @@ function TickerItems({ ariaHidden = false }: { ariaHidden?: boolean }) {
       {tickerItems.map((item, index) => (
         <div key={`${item.label}-${index}`} className="flex items-center gap-3 px-5 text-sm font-extrabold">
           {index % 3 === 0 ? (
-            <Clock3 className="h-4 w-4 text-brazil-yellow" aria-hidden="true" />
+            <Clock3 className="h-4 w-4 text-us-white" aria-hidden="true" />
           ) : index % 3 === 1 ? (
-            <Ticket className="h-4 w-4 text-brazil-yellow" aria-hidden="true" />
+            <Ticket className="h-4 w-4 text-us-white" aria-hidden="true" />
           ) : (
-            <Gift className="h-4 w-4 text-brazil-yellow" aria-hidden="true" />
+            <Gift className="h-4 w-4 text-us-white" aria-hidden="true" />
           )}
-          <span className="uppercase text-brazil-yellow">{item.label}</span>
+          <span className="uppercase text-us-white">{item.label}</span>
           <span className="text-white/78">{item.value}</span>
         </div>
       ))}
@@ -549,9 +550,9 @@ function TickerItems({ ariaHidden = false }: { ariaHidden?: boolean }) {
 function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
   return (
     <div className="max-w-3xl">
-      <p className="text-sm font-black uppercase text-brazil-green">{eyebrow}</p>
-      <h2 className="mt-3 font-display text-3xl leading-tight text-brazil-blue md:text-5xl">{title}</h2>
-      {text ? <p className="mt-4 text-base font-semibold leading-7 text-brazil-navy/64">{text}</p> : null}
+      <p className="text-sm font-black uppercase text-us-red">{eyebrow}</p>
+      <h2 className="mt-3 font-display text-3xl leading-tight text-us-blue md:text-5xl">{title}</h2>
+      {text ? <p className="mt-4 text-base font-semibold leading-7 text-us-navy/64">{text}</p> : null}
     </div>
   );
 }
@@ -559,10 +560,10 @@ function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: stri
 function MetaRow({ icon: Icon, label, value }: { icon: typeof Clock3; label: string; value: string }) {
   return (
     <div className="flex items-start gap-3">
-      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-brazil-green" aria-hidden="true" />
+      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-us-red" aria-hidden="true" />
       <div>
-        <p className="text-xs font-black uppercase text-brazil-navy/44">{label}</p>
-        <p className="text-sm font-extrabold text-brazil-blue">{value}</p>
+        <p className="text-xs font-black uppercase text-us-navy/44">{label}</p>
+        <p className="text-sm font-extrabold text-us-blue">{value}</p>
       </div>
     </div>
   );
@@ -570,13 +571,13 @@ function MetaRow({ icon: Icon, label, value }: { icon: typeof Clock3; label: str
 
 function DateField({ label, value, onChange }: { label: string; value: string; onChange: (value: string) => void }) {
   return (
-    <label className="grid gap-2 text-sm font-extrabold text-brazil-blue">
+    <label className="grid gap-2 text-sm font-extrabold text-us-blue">
       <span>{label}</span>
       <input
         type="date"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-12 rounded-md border border-brazil-blue/18 bg-white px-4 text-brazil-navy focus:outline-none focus:ring-2 focus:ring-brazil-yellow"
+        className="h-12 rounded-md border border-us-blue/18 bg-white px-4 text-us-navy focus:outline-none focus:ring-2 focus:ring-us-red"
       />
     </label>
   );
@@ -585,7 +586,7 @@ function DateField({ label, value, onChange }: { label: string; value: string; o
 function InfoPanel({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return (
     <div className="rounded-2xl border border-white/14 bg-white/8 p-5">
-      <p className="text-sm font-black uppercase text-brazil-yellow">{eyebrow}</p>
+      <p className="text-sm font-black uppercase text-us-white">{eyebrow}</p>
       <h2 className="mt-2 font-display text-2xl leading-tight text-white">{title}</h2>
       <p className="mt-3 font-semibold leading-7 text-white/74">{text}</p>
     </div>
