@@ -13,7 +13,7 @@
   body {
     margin: 0;
     min-width: 320px;
-    background: #f8f4e8;
+    background: #fff4df;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -21,7 +21,7 @@
   }
 
   ::selection {
-    background: rgba(247, 198, 0, 0.35);
+    background: rgba(245, 184, 59, 0.38);
   }
 }
 

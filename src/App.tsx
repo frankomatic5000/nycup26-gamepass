@@ -204,9 +204,9 @@ function App() {
   return (
     <main className="min-h-screen bg-brazil-cream text-brazil-navy">
       <header className="sticky top-0 z-40 border-b border-brazil-blue/10 bg-white/92 backdrop-blur">
-        <div className="border-b border-brazil-yellow/30 bg-brazil-navy text-white">
+        <div className="border-b border-brazil-yellow/40 bg-brazil-navy text-white">
           <div className="flex h-11 items-center overflow-hidden">
-            <div className="flex h-full shrink-0 items-center gap-2 bg-brazil-yellow px-4 text-xs font-black uppercase text-brazil-navy">
+            <div className="flex h-full shrink-0 items-center gap-2 bg-brazil-green px-4 text-xs font-black uppercase text-white">
               <Radio className="h-4 w-4" aria-hidden="true" />
               Live Board
             </div>
@@ -242,15 +242,23 @@ function App() {
             src="/nycup26-hero.png"
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover object-center opacity-45 blur-[2px]"
+            className="h-full w-full scale-105 object-cover object-center opacity-35 blur-[3px] saturate-125"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,39,94,0.96)_0%,rgba(8,39,94,0.76)_40%,rgba(8,39,94,0.30)_72%,rgba(8,39,94,0.56)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,39,94,0.22)_0%,rgba(8,39,94,0.12)_42%,rgba(8,39,94,0.72)_100%)]" />
+          <img
+            src="/nycup26-hero.png"
+            alt="Statue of Liberty holding a soccer trophy with a glowing NYCUP26 Game Pass bracelet"
+            className="absolute inset-y-0 right-0 h-full w-full object-contain object-right opacity-100 drop-shadow-[0_30px_80px_rgba(245,184,59,0.30)]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,17,61,0.98)_0%,rgba(36,17,61,0.86)_36%,rgba(36,17,61,0.20)_70%,rgba(36,17,61,0.16)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(36,17,61,0.10)_0%,rgba(36,17,61,0.04)_42%,rgba(36,17,61,0.74)_100%)]" />
+          <div className="absolute right-[8%] top-[18%] hidden rounded-full border border-brazil-yellow/60 bg-brazil-yellow/18 px-4 py-2 text-xs font-black uppercase text-brazil-yellow backdrop-blur-md md:block">
+            Bracelet unlock signal
+          </div>
         </div>
 
         <div className="relative mx-auto grid min-h-[calc(100vh-120px)] max-w-7xl content-end px-5 pb-12 pt-24 md:min-h-[760px] md:px-8 md:pb-16">
           <div className="max-w-3xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-brazil-yellow px-3 py-2 text-sm font-black text-brazil-navy">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-brazil-green px-3 py-2 text-sm font-black text-white">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               Unlock NYC during the World Cup.
             </div>
@@ -258,13 +266,13 @@ function App() {
               Your bracelet unlocks the city.
             </h1>
             <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-white/88 md:text-xl">
-              NYCUP26 GAME PASS is a mobile-first landing page for World Cup visitors: easy signup, clear pickup
-              instructions, date-based venue filtering, and a straight path to purchase.
+              A festival-style visitor bracelet for World Cup fans in NYC: watch parties, curated venues,
+              food and nightlife perks, sponsor moments, and a simple path to early access.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#signup"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-brazil-yellow px-6 text-base font-extrabold text-brazil-navy transition hover:bg-[#ffd93f]"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-brazil-yellow px-6 text-base font-extrabold text-brazil-navy transition hover:bg-[#ffd36a]"
               >
                 Join the waitlist
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
