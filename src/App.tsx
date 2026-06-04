@@ -23,7 +23,9 @@ type Venue = {
   name: string;
   category: string;
   neighborhood: string;
-  benefit: string;
+  address: string;
+  benefits: string[];
+  hours?: string;
   validFrom: string;
   validTo: string;
   mapUrl: string;
@@ -38,67 +40,225 @@ const tickerItems = [
 
 const venues: Venue[] = [
   {
-    name: "Hard Rock Cafe",
-    category: "Sports bar",
-    neighborhood: "Times Square",
-    benefit: "Game-day watch parties and bracelet-holder specials.",
-    validFrom: "2026-06-11",
-    validTo: "2026-07-19",
-    mapUrl: "https://maps.google.com/?q=Hard+Rock+Cafe+Times+Square",
-  },
-  {
-    name: "Copacabana",
-    category: "Nightlife",
-    neighborhood: "Midtown West",
-    benefit: "Late-night energy with food and drink promos.",
-    validFrom: "2026-06-15",
-    validTo: "2026-07-19",
-    mapUrl: "https://maps.google.com/?q=Copacabana+NYC",
-  },
-  {
     name: "Iron Bar",
     category: "Bar",
-    neighborhood: "Chelsea",
-    benefit: "Central pickup candidate and hospitality partner.",
+    neighborhood: "Times Square",
+    address: "713 8th Ave, New York, NY",
+    benefits: ["Drink specials", "Beer special", "Beer bucket special", "1 cocktail special"],
+    hours: "4pm to 2am",
     validFrom: "2026-06-11",
     validTo: "2026-07-19",
-    mapUrl: "https://maps.google.com/?q=Iron+Bar+NYC",
+    mapUrl: "https://maps.google.com/?q=Iron+Bar+713+8th+Ave+New+York+NY",
   },
   {
-    name: "Fushimi",
+    name: "Hard Rock Cafe Times Square",
+    category: "Restaurant / entertainment",
+    neighborhood: "Times Square",
+    address: "1501 Broadway, New York, NY",
+    benefits: [
+      "Happy hour specials and World Cup package for all games",
+      "Game Day Menu and Special ALL TEAMS ONE PLACE menu",
+      "Happy Hour Drink Specials during the game",
+      "Foosball table",
+      "Photo moment",
+      "Retail add-on: glassware for $15.50 plus tax includes non-alcoholic drink or beer",
+      "Premium games: fan face painting, interactive light game experience, game guess giveaways, on-site liquor partners",
+      "Premium seating available for $25 per person per game for PIT seating",
+    ],
+    hours: "12pm to 12am",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Hard+Rock+Cafe+Times+Square+1501+Broadway+New+York+NY",
+  },
+  {
+    name: "Fushimi Times Square",
     category: "Restaurant",
+    neighborhood: "Times Square",
+    address: "311 W 43rd St, New York, NY",
+    benefits: ["Happy hour specials all throughout games", "10% off food orders"],
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Fushimi+Times+Square+311+W+43rd+St+New+York+NY",
+  },
+  {
+    name: "Vivid Cabaret",
+    category: "Gentlemen's club",
     neighborhood: "Midtown",
-    benefit: "Food discounts and group-friendly dining.",
-    validFrom: "2026-06-20",
-    validTo: "2026-07-10",
-    mapUrl: "https://maps.google.com/?q=Fushimi+NYC",
+    address: "61 W 37th St, New York, NY 10018",
+    benefits: ["Free admission", "$7 beers", "$12 drinks"],
+    hours: "12pm to 4am",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Vivid+Cabaret+61+W+37th+St+New+York+NY+10018",
   },
   {
     name: "Planet Hollywood",
     category: "Entertainment",
     neighborhood: "Times Square",
-    benefit: "Visitor-friendly pickup and event coordination.",
+    address: "136 W 42nd St, New York, NY 10018",
+    benefits: ["20% off drinks and any food purchase", "$26 for 2026 combo"],
+    hours: "12 noon to 2am",
     validFrom: "2026-06-11",
     validTo: "2026-07-19",
-    mapUrl: "https://maps.google.com/?q=Planet+Hollywood+Times+Square",
+    mapUrl: "https://maps.google.com/?q=Planet+Hollywood+136+W+42nd+St+New+York+NY+10018",
+  },
+  {
+    name: "Sombrero",
+    category: "Restaurant / bar",
+    neighborhood: "Hell's Kitchen",
+    address: "303 W 48th St, New York, NY",
+    benefits: ["Drink specials", "Happy hour specials at the bar", "10% dining"],
+    hours: "4pm until TBD",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Sombrero+303+W+48th+St+New+York+NY",
+  },
+  {
+    name: "Patron",
+    category: "Bar",
+    neighborhood: "Hell's Kitchen",
+    address: "608 9th Ave, New York, NY",
+    benefits: ["Drink specials"],
+    hours: "4pm to 12am",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Patron+608+9th+Ave+New+York+NY",
+  },
+  {
+    name: "Eccolo",
+    category: "Restaurant",
+    neighborhood: "Hell's Kitchen",
+    address: "315 W 48th St, New York, NY",
+    benefits: ["10% off dinner"],
+    hours: "4pm to 10pm",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Eccolo+315+W+48th+St+New+York+NY",
+  },
+  {
+    name: "Bliss",
+    category: "Bar",
+    neighborhood: "Financial District",
+    address: "6 Platt Street, 2nd floor, New York, NY",
+    benefits: ["Drink specials: beers $7, wine $8, mixed drinks $12, shots $14"],
+    hours: "5pm weekdays; Saturday/Sunday 12pm",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Bliss+6+Platt+Street+2nd+floor+New+York+NY",
   },
   {
     name: "High Key Rooftop",
     category: "Rooftop",
-    neighborhood: "Murray Hill",
-    benefit: "Rooftop watch moments and sponsor activations.",
-    validFrom: "2026-06-25",
+    neighborhood: "Financial District",
+    address: "6 Platt Street, 29th floor, New York, NY",
+    benefits: ["Drink specials: beers $7, wine $8, mixed drinks $12, shots $14"],
+    hours: "3pm Mon-Friday; Saturday/Sunday 12pm",
+    validFrom: "2026-06-11",
     validTo: "2026-07-19",
-    mapUrl: "https://maps.google.com/?q=High+Key+Rooftop+NYC",
+    mapUrl: "https://maps.google.com/?q=High+Key+Rooftop+6+Platt+Street+29th+floor+New+York+NY",
+  },
+  {
+    name: "Copacabana",
+    category: "Nightlife",
+    neighborhood: "Hell's Kitchen",
+    address: "625 W 51st St, New York, NY 10019",
+    benefits: ["Drink specials - Happy hour prices", "$26 combo specials (2 drinks + 2 empanadas)"],
+    hours: "Thursday through Sunday, 3pm on",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Copacabana+625+W+51st+St+New+York+NY+10019",
+  },
+  {
+    name: "Haswell Greens",
+    category: "Bar / restaurant",
+    neighborhood: "Midtown",
+    address: "240 W 52nd St, New York, NY",
+    benefits: ["Free admission", "Drink specials", "$7 beer", "$30 Mich Ultra buckets", "$10 mixed drinks"],
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Haswell+Greens+240+W+52nd+St+New+York+NY",
+  },
+  {
+    name: "SOBs",
+    category: "Music venue",
+    neighborhood: "Hudson Square",
+    address: "200 Varick Street, New York, NY 10012",
+    benefits: ["Free admission", "$1 off all drinks"],
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=SOBs+200+Varick+Street+New+York+NY+10012",
+  },
+  {
+    name: "Low Key (Queens)",
+    category: "Bar",
+    neighborhood: "Forest Hills, Queens",
+    address: "70-15 Austin Street, Forest Hills, NY 11375",
+    benefits: ["Beers $7, wine $8, mixed drinks $12, shots $14"],
+    hours: "3pm Mon-Friday; Saturday/Sunday 12pm",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Low+Key+70-15+Austin+Street+Forest+Hills+NY+11375",
+  },
+  {
+    name: "Rio Bonito",
+    category: "Restaurant",
+    neighborhood: "Astoria, Queens",
+    address: "32-15 36th Ave, Astoria, NY 11106",
+    benefits: ["10% off bill at restaurant"],
+    hours: "7 days a week, 9am to 9pm",
+    validFrom: "2026-06-11",
+    validTo: "2026-07-19",
+    mapUrl: "https://maps.google.com/?q=Rio+Bonito+32-15+36th+Ave+Astoria+NY+11106",
+  },
+];
+const steps = [
+  "Choose the dates you will be in town.",
+  "Use the ticket link once it is announced.",
+  "Pick up your wristband at the assigned NYC location.",
+  "Wear that day's wristband color to participating venues.",
+  "Follow each venue's house rules and enjoy eligible specials.",
+];
+
+const pickupSchedule = [
+  {
+    dates: "June 11, 12, 13",
+    location: "The Copa",
+    address: "625 West 51st St, New York, NY 10019",
+    status: "Confirmed",
+  },
+  {
+    dates: "June 14-27",
+    location: "TBD / coming soon",
+    address: "Pickup locations will be announced before purchase or event day.",
+    status: "Coming soon",
   },
 ];
 
-const steps = [
-  "Choose the dates you will be in town.",
-  "Buy the pass through the external ticketing link.",
-  "Pick up the bracelet in New York City.",
-  "Show the bracelet to unlock venue benefits.",
-  "Enjoy watch parties, specials, and sponsor moments.",
+const operationRules = [
+  {
+    title: "Daily program",
+    text: "NYCUP26 runs daily from June 11 to July 19, 2026. The first round runs June 11 to June 27.",
+  },
+  {
+    title: "Pickup can vary",
+    text: "Customers pick up their wristband at the assigned pickup location. Locations may vary, and each day uses a different color wristband.",
+  },
+  {
+    title: "Age rules",
+    text: "Nightclubs are 21+. Restaurants and non-nightclub venues are 18+ unless a venue policy says otherwise.",
+  },
+  {
+    title: "Venue policies",
+    text: "Entry is subject to venue guidelines, house rules, capacity, and security. Customers must comply with each venue's policies.",
+  },
+  {
+    title: "No refunds",
+    text: "All sales are final. There are no refunds.",
+  },
+  {
+    title: "Benefits disclaimer",
+    text: "No free products are included. Wristbands unlock discounts, happy hour specials, and giveaway participation at participating venues.",
+  },
 ];
 
 const partnerTypes = [
@@ -150,17 +310,22 @@ const faqItems = [
   {
     question: "How do I buy the bracelet?",
     answer:
-      "The site sends users to an external ticketing platform. Checkout happens off-site, and the website explains pickup instructions clearly.",
+      "The ticket link is coming soon. Pickup instructions and the assigned pickup location will be announced before purchase or event day.",
   },
   {
     question: "Where do I pick it up?",
     answer:
-      "Pickup is in person in NYC. The current build shows pickup candidates while the final location is confirmed.",
+      "Pickup is in person at the assigned NYC location. June 11, 12, and 13 pickup is confirmed at The Copa, 625 West 51st St, New York, NY 10019. June 14-27 is TBD / coming soon.",
   },
   {
     question: "Can I filter by my travel dates?",
     answer:
-      "Yes. The venue grid filters down to locations active during the selected date window, so visitors only see relevant options.",
+      "Yes. The venue grid filters down to locations active during the selected date window, so visitors only see relevant options. NYCUP26 runs daily from June 11 to July 19, 2026.",
+  },
+  {
+    question: "Are there age restrictions or refunds?",
+    answer:
+      "Nightclubs are 21+. Restaurants and non-nightclub venues are 18+ unless a venue policy says otherwise. All sales are final; there are no refunds.",
   },
   {
     question: "Is this only for Brazilians?",
@@ -189,7 +354,7 @@ function App() {
   const signupMessage = useMemo(() => {
     if (status === "error") return "Enter a valid email address so we can follow up.";
     if (status === "success") return `You're on the list. We'll follow up in ${language}.`;
-    return "Early access includes updates on venues, pickup, and ticketing.";
+    return "Early access includes updates on venues, wristband pickup, and the ticket link.";
   }, [language, status]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -289,8 +454,8 @@ function App() {
 
           <div className="mt-10 grid gap-3 sm:grid-cols-3">
             <StatCard icon={CalendarDays} label="Event dates" value="June 11 - July 19, 2026" />
-            <StatCard icon={Sparkles} label="Program length" value="34 days of events" />
-            <StatCard icon={Ticket} label="Pass format" value="Visitor bracelet" />
+            <StatCard icon={Sparkles} label="Program length" value="39 daily event days" />
+            <StatCard icon={Ticket} label="First round" value="June 11 - June 27" />
           </div>
         </div>
       </section>
@@ -311,8 +476,8 @@ function App() {
       <section id="how-it-works" className="section-shell">
         <SectionHeading
           eyebrow="How it works"
-          title="Five simple steps from arrival to access."
-          text="The flow stays obvious so travelers can understand the offer in seconds."
+          title="Five simple steps from arrival to wristband access."
+          text="The flow stays obvious while pickup locations, daily wristband colors, and ticket links are finalized."
         />
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
           {steps.map((step, index) => (
@@ -326,12 +491,60 @@ function App() {
         </div>
       </section>
 
+      <section className="section-shell bg-white">
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Rules + pickup"
+              title="What customers need to know before event day."
+              text="NYCUP26 runs daily June 11 to July 19, 2026. Customers receive the assigned pickup location before purchase or event day, and each event day uses a different wristband color."
+            />
+            <div className="mt-6 rounded-2xl border border-us-blue/10 bg-us-cream p-5 shadow-card">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-us-red" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-black uppercase text-us-red">Confirmed pickup schedule</p>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-us-navy/70">
+                    June 11, 12, and 13 wristband pickup is confirmed at The Copa. June 14-27 locations are TBD / coming soon.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-5 grid gap-3">
+                {pickupSchedule.map((pickup) => (
+                  <div key={pickup.dates} className="rounded-xl bg-white p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <p className="text-sm font-black text-us-blue">{pickup.dates}</p>
+                      <span className="rounded-full bg-us-blue/10 px-3 py-1 text-xs font-black uppercase text-us-blue">
+                        {pickup.status}
+                      </span>
+                    </div>
+                    <p className="mt-2 font-display text-xl leading-tight text-us-blue">{pickup.location}</p>
+                    <p className="mt-1 text-sm font-semibold leading-6 text-us-navy/70">{pickup.address}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {operationRules.map((rule) => (
+              <article key={rule.title} className="rounded-2xl border border-us-blue/10 bg-us-cream p-5 shadow-card">
+                <ShieldCheck className="h-6 w-6 text-us-red" aria-hidden="true" />
+                <h3 className="mt-4 font-display text-xl leading-tight text-us-blue">{rule.title}</h3>
+                <p className="mt-2 text-sm font-semibold leading-6 text-us-navy/70">{rule.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="venues" className="section-shell bg-white">
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
-            eyebrow="Featured venues"
-            title="Filter locations by your travel window."
-            text="This version keeps the venue list easy to scan and trims it to relevant dates."
+            eyebrow="Approved venues"
+            title="Wristband benefits by venue."
+            text="All 15 participating venues from the approved source are listed with address, perks, and operating hours where provided."
           />
           <div className="grid gap-3 sm:grid-cols-2">
             <DateField label="Arrival" value={travelStart} onChange={setTravelStart} />
@@ -352,11 +565,21 @@ function App() {
                   <MapPin className="h-5 w-5 shrink-0 text-us-blue" aria-hidden="true" />
                 </div>
 
-                <p className="mt-4 text-sm font-semibold leading-6 text-us-navy/70">{venue.benefit}</p>
+                <p className="mt-4 text-sm font-semibold leading-6 text-us-navy/70">{venue.address}</p>
+
+                <ul className="mt-4 grid gap-2 text-sm font-semibold leading-6 text-us-navy/75">
+                  {venue.benefits.map((benefit) => (
+                    <li key={benefit} className="flex gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-us-red" aria-hidden="true" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
 
                 <div className="mt-5 grid gap-3 rounded-xl bg-white p-4">
                   <MetaRow icon={Clock3} label="Neighborhood" value={venue.neighborhood} />
-                  <MetaRow icon={CalendarDays} label="Valid" value={`${venue.validFrom} to ${venue.validTo}`} />
+                  <MetaRow icon={Clock3} label="Hours" value={venue.hours ?? "Not specified in approved source"} />
+                  <MetaRow icon={CalendarDays} label="Pass window" value={`${venue.validFrom} to ${venue.validTo}`} />
                 </div>
 
                 <a
@@ -398,12 +621,12 @@ function App() {
           <InfoPanel
             eyebrow="Pickup"
             title="In-person bracelet pickup."
-            text="The site makes it clear that the bracelet is collected in NYC rather than shipped to customers."
+            text="Customers pick up the wristband at the assigned NYC location. The location may vary by day, and each day has a different color wristband."
           />
           <InfoPanel
             eyebrow="Tickets"
-            title="Checkout happens externally."
-            text="The CTA points to the ticketing platform, keeping the website focused on discovery and conversion."
+            title="Ticket link coming soon."
+            text="Ticket and checkout links will be shared later. No ticket platform or direct payment details are published here."
           />
         </div>
       </section>
@@ -416,6 +639,10 @@ function App() {
             <p className="mt-4 max-w-2xl font-semibold leading-7 text-white">
               The layout reserves space for partners, community organizations, and local businesses that want to reach
               World Cup visitors.
+            </p>
+            <p className="mt-4 max-w-2xl rounded-xl bg-white/12 p-4 text-sm font-black leading-6 text-white">
+              Want your office party, large group of friends, or organization to participate at one of our viewing venues?
+              Contact 917-721-5819 or Conquestnyc@gmail.com.
             </p>
           </div>
           <div className="grid gap-2">
