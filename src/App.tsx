@@ -1,11 +1,10 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   CalendarDays,
   CheckCircle2,
   Clock3,
   Gift,
-  Languages,
   MapPin,
   Megaphone,
   Music2,
@@ -35,7 +34,7 @@ type Venue = {
 type Copy = {
   languageName: string;
   ticker: { label: string; value: string }[];
-  nav: { venues: string; howItWorks: string; partners: string; faq: string; waitlist: string };
+  nav: { venues: string; howItWorks: string; partners: string; faq: string; tickets: string };
   hero: {
     liveBoard: string;
     tickerLabel: string;
@@ -81,20 +80,6 @@ type Copy = {
     groupCta: string;
     types: string[];
   };
-  signup: {
-    eyebrow: string;
-    title: string;
-    text: string;
-    email: string;
-    language: string;
-    visitDates: string;
-    visitDatesPlaceholder: string;
-    visitHint: string;
-    invalidEmail: string;
-    success: string;
-    idle: string;
-    button: string;
-  };
   faq: { eyebrow: string; title: string; items: { question: string; answer: string }[] };
   footer: string;
   heroImageAlt: string;
@@ -107,6 +92,7 @@ const languageOptions: { code: LanguageCode; label: string }[] = [
 ];
 
 const STORAGE_KEY = "nycup26-language";
+const TICKET_URL = "https://www.eventbrite.com/e/world-cup-2026-first-match-mexico-vs-south-africa-tickets-1991163309058?aff=oddtdtcreator&keep_tld=true";
 
 const copy: Record<LanguageCode, Copy> = {
   en: {
@@ -117,15 +103,15 @@ const copy: Record<LanguageCode, Copy> = {
       { label: "Pickup", value: "In-person bracelet handoff in NYC" },
       { label: "Partners", value: "Sponsor, fundraiser, and venue options" },
     ],
-    nav: { venues: "Venues", howItWorks: "How it works", partners: "Partners", faq: "FAQ", waitlist: "Waitlist" },
+    nav: { venues: "Venues", howItWorks: "How it works", partners: "Partners", faq: "FAQ", tickets: "Tickets" },
     hero: {
       liveBoard: "Live Board",
       tickerLabel: "NYCUP26 updates",
       unlockSignal: "Bracelet unlock signal",
       badge: "Unlock NYC during the World Cup.",
       title: "Your bracelet unlocks the city.",
-      text: "A festival-style visitor bracelet for World Cup fans in NYC: watch parties, curated venues, food and nightlife perks, sponsor moments, and a simple path to early access.",
-      join: "Join the waitlist",
+      text: "A festival-style visitor bracelet for World Cup fans in NYC: watch parties, curated venues, food and nightlife perks, sponsor moments, and a simple path to tickets.",
+      join: "Buy tickets",
       explore: "Explore venues",
       stats: [
         { label: "Event dates", value: "June 11 - July 19, 2026" },
@@ -136,15 +122,15 @@ const copy: Record<LanguageCode, Copy> = {
     concept: {
       eyebrow: "The concept",
       title: "A bracelet that doubles as a city guide.",
-      text: "Visitors choose dates, see relevant venues, and follow a simple path from signup to pickup. The design is clean, practical, and built to launch fast.",
+      text: "Visitors choose dates, see relevant venues, and follow a simple path from ticket purchase to pickup. The design is clean, practical, and built to launch fast.",
     },
     how: {
       eyebrow: "How it works",
       title: "Five simple steps from arrival to wristband access.",
-      text: "The flow stays obvious while pickup locations, daily wristband colors, and ticket links are finalized.",
+      text: "The flow stays obvious while pickup locations and daily wristband colors are finalized.",
       steps: [
         "Choose the dates you will be in town.",
-        "Use the ticket link once it is announced.",
+        "Buy your bracelet through the live ticket link.",
         "Pick up your wristband at the assigned NYC location.",
         "Wear that day's wristband color to participating venues.",
         "Follow each venue's house rules and enjoy eligible specials.",
@@ -194,7 +180,7 @@ const copy: Record<LanguageCode, Copy> = {
     },
     infoPanels: {
       pickup: { eyebrow: "Pickup", title: "In-person bracelet pickup.", text: "Customers pick up the wristband at the assigned NYC location. The location may vary by day, and each day has a different color wristband." },
-      tickets: { eyebrow: "Tickets", title: "Ticket link coming soon.", text: "Ticket and checkout links will be shared later. No ticket platform or direct payment details are published here." },
+      tickets: { eyebrow: "Tickets", title: "First ticket link is live.", text: "Use the live Eventbrite link for the first NYCUP26 ticket CTA: Mexico vs South Africa on June 11, 2026." },
     },
     partners: {
       eyebrow: "Sponsors / Partners",
@@ -203,26 +189,13 @@ const copy: Record<LanguageCode, Copy> = {
       groupCta: "Want your office party, large group of friends, or organization to participate at one of our viewing venues? Contact 917-721-5819 or Conquestnyc@gmail.com.",
       types: ["Institutions", "Community organizations", "Local businesses", "Hospitality groups"],
     },
-    signup: {
-      eyebrow: "Email signup",
-      title: "Collect leads before launch.",
-      text: "The form supports simple validation and a success state without extra backend plumbing.",
-      email: "Email",
-      language: "Language",
-      visitDates: "Visit dates",
-      visitDatesPlaceholder: "June 20 - June 27",
-      visitHint: "Use the filter above to change the venue window.",
-      invalidEmail: "Enter a valid email address so we can follow up.",
-      success: "You're on the list. We'll follow up in English.",
-      idle: "Early access includes updates on venues, wristband pickup, and the ticket link.",
-      button: "Get early access",
-    },
+
     faq: {
       eyebrow: "FAQ",
       title: "Quick answers for first-time visitors.",
       items: [
         { question: "What is NYCUP26?", answer: "NYCUP26 is a World Cup–oriented bracelet pass that helps visitors discover venues, perks, and event-day experiences in New York City." },
-        { question: "How do I buy the bracelet?", answer: "The ticket link is coming soon. Pickup instructions and the assigned pickup location will be announced before purchase or event day." },
+        { question: "How do I buy the bracelet?", answer: "Use the live Eventbrite ticket link on this page. Pickup instructions and the assigned pickup location will be announced before purchase or event day." },
         { question: "Where do I pick it up?", answer: "Pickup is in person at the assigned NYC location. June 11, 12, and 13 pickup is confirmed at The Copa, 625 West 51st St, New York, NY 10019. June 14-27 is TBD / coming soon." },
         { question: "Can I filter by my travel dates?", answer: "Yes. The venue grid filters down to locations active during the selected date window, so visitors only see relevant options. NYCUP26 runs daily from June 11 to July 19, 2026." },
         { question: "Are there age restrictions or refunds?", answer: "Nightclubs are 21+. Restaurants and non-nightclub venues are 18+ unless a venue policy says otherwise. All sales are final; there are no refunds." },
@@ -240,15 +213,15 @@ const copy: Record<LanguageCode, Copy> = {
       { label: "Retiro", value: "Entrega presencial de la pulsera en NYC" },
       { label: "Aliados", value: "Opciones para sponsors, recaudaciones y venues" },
     ],
-    nav: { venues: "Venues", howItWorks: "Cómo funciona", partners: "Aliados", faq: "FAQ", waitlist: "Lista de espera" },
+    nav: { venues: "Venues", howItWorks: "Cómo funciona", partners: "Aliados", faq: "FAQ", tickets: "Tickets" },
     hero: {
       liveBoard: "Tablero en vivo",
       tickerLabel: "Actualizaciones de NYCUP26",
       unlockSignal: "Señal de activación de pulsera",
       badge: "Descubre NYC durante el Mundial.",
       title: "Tu pulsera desbloquea la ciudad.",
-      text: "Una pulsera estilo festival para fans del Mundial en NYC: watch parties, venues seleccionados, beneficios de comida y nightlife, momentos de sponsors y una ruta simple para recibir acceso temprano.",
-      join: "Únete a la lista de espera",
+      text: "Una pulsera estilo festival para fans del Mundial en NYC: watch parties, venues seleccionados, beneficios de comida y nightlife, momentos de sponsors y una ruta simple para comprar tickets.",
+      join: "Comprar tickets",
       explore: "Explorar venues",
       stats: [
         { label: "Fechas del evento", value: "June 11 - July 19, 2026" },
@@ -259,15 +232,15 @@ const copy: Record<LanguageCode, Copy> = {
     concept: {
       eyebrow: "El concepto",
       title: "Una pulsera que también funciona como guía de la ciudad.",
-      text: "Los visitantes eligen fechas, ven venues relevantes y siguen una ruta simple desde el registro hasta el retiro. El diseño es claro, práctico y listo para lanzar rápido.",
+      text: "Los visitantes eligen fechas, ven venues relevantes y siguen una ruta simple desde la compra del ticket hasta el retiro. El diseño es claro, práctico y listo para lanzar rápido.",
     },
     how: {
       eyebrow: "Cómo funciona",
       title: "Cinco pasos simples desde la llegada hasta el acceso con pulsera.",
-      text: "El flujo se mantiene claro mientras se finalizan los puntos de retiro, los colores diarios de pulsera y los links de tickets.",
+      text: "El flujo se mantiene claro mientras se finalizan los puntos de retiro y los colores diarios de pulsera.",
       steps: [
         "Elige las fechas en las que estarás en la ciudad.",
-        "Usa el link de tickets cuando sea anunciado.",
+        "Compra tu pulsera con el link de tickets activo.",
         "Retira tu pulsera en el punto asignado en NYC.",
         "Usa el color de pulsera de ese día en los venues participantes.",
         "Sigue las reglas de cada venue y disfruta los beneficios elegibles.",
@@ -317,7 +290,7 @@ const copy: Record<LanguageCode, Copy> = {
     },
     infoPanels: {
       pickup: { eyebrow: "Retiro", title: "Retiro presencial de pulsera.", text: "Los clientes retiran la pulsera en el punto asignado en NYC. La ubicación puede variar por día, y cada día tiene un color de pulsera diferente." },
-      tickets: { eyebrow: "Tickets", title: "Link de tickets próximamente.", text: "Los links de ticket y checkout se compartirán más adelante. Aquí no se publica ninguna plataforma de tickets ni detalle de pago directo." },
+      tickets: { eyebrow: "Tickets", title: "El primer link de tickets está activo.", text: "Usa el link activo de Eventbrite para el primer CTA de tickets de NYCUP26: México vs Sudáfrica el June 11, 2026." },
     },
     partners: {
       eyebrow: "Sponsors / Aliados",
@@ -326,26 +299,13 @@ const copy: Record<LanguageCode, Copy> = {
       groupCta: "¿Quieres que tu office party, grupo grande de amigos u organización participe en uno de nuestros viewing venues? Contacta 917-721-5819 o Conquestnyc@gmail.com.",
       types: ["Instituciones", "Organizaciones comunitarias", "Negocios locales", "Grupos de hospitality"],
     },
-    signup: {
-      eyebrow: "Registro por email",
-      title: "Captura leads antes del lanzamiento.",
-      text: "El formulario tiene validación simple y un estado de éxito sin agregar backend extra.",
-      email: "Email",
-      language: "Idioma",
-      visitDates: "Fechas de visita",
-      visitDatesPlaceholder: "June 20 - June 27",
-      visitHint: "Usa el filtro de arriba para cambiar la ventana de venues.",
-      invalidEmail: "Ingresa un email válido para que podamos contactarte.",
-      success: "Estás en la lista. Haremos seguimiento en español.",
-      idle: "El acceso temprano incluye actualizaciones sobre venues, retiro de pulsera y el link de tickets.",
-      button: "Recibir acceso temprano",
-    },
+
     faq: {
       eyebrow: "FAQ",
       title: "Respuestas rápidas para visitantes primerizos.",
       items: [
         { question: "¿Qué es NYCUP26?", answer: "NYCUP26 es un pase con pulsera orientado al Mundial que ayuda a los visitantes a descubrir venues, beneficios y experiencias de día de evento en New York City." },
-        { question: "¿Cómo compro la pulsera?", answer: "El link de tickets llegará próximamente. Las instrucciones de retiro y el punto asignado se anunciarán antes de la compra o del día del evento." },
+        { question: "¿Cómo compro la pulsera?", answer: "Usa el link activo de Eventbrite en esta página. Las instrucciones de retiro y el punto asignado se anunciarán antes de la compra o del día del evento." },
         { question: "¿Dónde la retiro?", answer: "El retiro es presencial en el punto asignado en NYC. El retiro de June 11, 12 y 13 está confirmado en The Copa, 625 West 51st St, New York, NY 10019. June 14-27 está TBD / coming soon." },
         { question: "¿Puedo filtrar por mis fechas de viaje?", answer: "Sí. La grilla de venues se filtra a ubicaciones activas durante la ventana de fechas seleccionada, para que los visitantes vean solo opciones relevantes. NYCUP26 opera todos los días de June 11 a July 19, 2026." },
         { question: "¿Hay restricciones de edad o reembolsos?", answer: "Los nightclubs son 21+. Los restaurantes y venues que no son nightclubs son 18+ salvo que una política del venue indique otra cosa. Todas las ventas son finales; no hay reembolsos." },
@@ -363,15 +323,15 @@ const copy: Record<LanguageCode, Copy> = {
       { label: "Retirada", value: "Entrega presencial da pulseira em NYC" },
       { label: "Parceiros", value: "Opções para patrocinadores, arrecadações e venues" },
     ],
-    nav: { venues: "Venues", howItWorks: "Como funciona", partners: "Parceiros", faq: "FAQ", waitlist: "Lista de espera" },
+    nav: { venues: "Venues", howItWorks: "Como funciona", partners: "Parceiros", faq: "FAQ", tickets: "Tickets" },
     hero: {
       liveBoard: "Painel ao vivo",
       tickerLabel: "Atualizações do NYCUP26",
       unlockSignal: "Sinal de ativação da pulseira",
       badge: "Explore NYC durante a Copa do Mundo.",
       title: "Sua pulseira destrava a cidade.",
-      text: "Uma pulseira estilo festival para fãs da Copa do Mundo em NYC: watch parties, venues selecionados, benefícios de comida e nightlife, momentos de patrocinadores e um caminho simples para acesso antecipado.",
-      join: "Entrar na lista de espera",
+      text: "Uma pulseira estilo festival para fãs da Copa do Mundo em NYC: watch parties, venues selecionados, benefícios de comida e nightlife, momentos de patrocinadores e um caminho simples para comprar tickets.",
+      join: "Comprar tickets",
       explore: "Explorar venues",
       stats: [
         { label: "Datas do evento", value: "June 11 - July 19, 2026" },
@@ -382,15 +342,15 @@ const copy: Record<LanguageCode, Copy> = {
     concept: {
       eyebrow: "O conceito",
       title: "Uma pulseira que também funciona como guia da cidade.",
-      text: "Visitantes escolhem datas, veem venues relevantes e seguem um caminho simples do cadastro até a retirada. O design é claro, prático e feito para lançar rápido.",
+      text: "Visitantes escolhem datas, veem venues relevantes e seguem um caminho simples da compra do ticket até a retirada. O design é claro, prático e feito para lançar rápido.",
     },
     how: {
       eyebrow: "Como funciona",
       title: "Cinco passos simples da chegada ao acesso com pulseira.",
-      text: "O fluxo continua claro enquanto pontos de retirada, cores diárias das pulseiras e links de tickets são finalizados.",
+      text: "O fluxo continua claro enquanto pontos de retirada e cores diárias das pulseiras são finalizados.",
       steps: [
         "Escolha as datas em que você estará na cidade.",
-        "Use o link de tickets assim que ele for anunciado.",
+        "Compre sua pulseira pelo link de tickets ativo.",
         "Retire sua pulseira no local designado em NYC.",
         "Use a cor da pulseira daquele dia nos venues participantes.",
         "Siga as regras de cada venue e aproveite os benefícios elegíveis.",
@@ -440,7 +400,7 @@ const copy: Record<LanguageCode, Copy> = {
     },
     infoPanels: {
       pickup: { eyebrow: "Retirada", title: "Retirada presencial da pulseira.", text: "Clientes retiram a pulseira no local designado em NYC. O local pode variar por dia, e cada dia tem uma cor diferente de pulseira." },
-      tickets: { eyebrow: "Tickets", title: "Link de tickets em breve.", text: "Links de ticket e checkout serão compartilhados depois. Nenhuma plataforma de ticket ou detalhe de pagamento direto está publicado aqui." },
+      tickets: { eyebrow: "Tickets", title: "O primeiro link de tickets está ativo.", text: "Use o link ativo do Eventbrite para o primeiro CTA de tickets do NYCUP26: México vs África do Sul em June 11, 2026." },
     },
     partners: {
       eyebrow: "Sponsors / Parceiros",
@@ -449,26 +409,13 @@ const copy: Record<LanguageCode, Copy> = {
       groupCta: "Quer que sua office party, grupo grande de amigos ou organização participe em um dos nossos viewing venues? Entre em contato: 917-721-5819 ou Conquestnyc@gmail.com.",
       types: ["Instituições", "Organizações comunitárias", "Negócios locais", "Grupos de hospitality"],
     },
-    signup: {
-      eyebrow: "Cadastro por email",
-      title: "Capture leads antes do lançamento.",
-      text: "O formulário tem validação simples e estado de sucesso sem adicionar backend extra.",
-      email: "Email",
-      language: "Idioma",
-      visitDates: "Datas da visita",
-      visitDatesPlaceholder: "June 20 - June 27",
-      visitHint: "Use o filtro acima para mudar a janela de venues.",
-      invalidEmail: "Digite um email válido para que possamos entrar em contato.",
-      success: "Você está na lista. Faremos contato em português.",
-      idle: "O acesso antecipado inclui atualizações sobre venues, retirada da pulseira e o link de tickets.",
-      button: "Receber acesso antecipado",
-    },
+
     faq: {
       eyebrow: "FAQ",
       title: "Respostas rápidas para visitantes de primeira viagem.",
       items: [
         { question: "O que é NYCUP26?", answer: "NYCUP26 é um pass com pulseira voltado à Copa do Mundo que ajuda visitantes a descobrir venues, benefícios e experiências de dias de evento em New York City." },
-        { question: "Como compro a pulseira?", answer: "O link de tickets estará disponível em breve. As instruções de retirada e o local designado serão anunciados antes da compra ou do dia do evento." },
+        { question: "Como compro a pulseira?", answer: "Use o link ativo do Eventbrite nesta página. As instruções de retirada e o local designado serão anunciados antes da compra ou do dia do evento." },
         { question: "Onde faço a retirada?", answer: "A retirada é presencial no local designado em NYC. A retirada de June 11, 12 e 13 está confirmada no The Copa, 625 West 51st St, New York, NY 10019. June 14-27 está TBD / coming soon." },
         { question: "Posso filtrar pelas minhas datas de viagem?", answer: "Sim. A grade de venues filtra locais ativos durante a janela de datas selecionada, para que visitantes vejam apenas opções relevantes. O NYCUP26 acontece diariamente de June 11 a July 19, 2026." },
         { question: "Há restrições de idade ou reembolsos?", answer: "Nightclubs são 21+. Restaurantes e venues que não são nightclubs são 18+, salvo se a política do venue disser o contrário. Todas as vendas são finais; não há reembolsos." },
@@ -744,11 +691,9 @@ function isLanguageCode(value: string | null): value is LanguageCode {
 }
 
 function App() {
-  const [email, setEmail] = useState("");
   const [language, setLanguage] = useState<LanguageCode>(getInitialLanguage);
   const [travelStart, setTravelStart] = useState("");
   const [travelEnd, setTravelEnd] = useState("");
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
   const t = copy[language];
 
   useEffect(() => {
@@ -764,21 +709,6 @@ function App() {
       return venue.validFrom <= end && venue.validTo >= start;
     });
   }, [travelStart, travelEnd]);
-
-  const signupMessage = useMemo(() => {
-    if (status === "error") return t.signup.invalidEmail;
-    if (status === "success") return t.signup.success;
-    return t.signup.idle;
-  }, [status, t.signup.idle, t.signup.invalidEmail, t.signup.success]);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!email.includes("@") || !email.includes(".")) {
-      setStatus("error");
-      return;
-    }
-    setStatus("success");
-  }
 
   return (
     <main className="min-h-screen bg-us-cream text-us-navy">
@@ -809,10 +739,12 @@ function App() {
           <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSelector language={language} onChange={setLanguage} variant="light" />
             <a
-              href="#signup"
+              href={TICKET_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-white px-4 text-sm font-extrabold text-us-navy transition hover:bg-[#EEF3FF] sm:px-5"
             >
-              {t.nav.waitlist}
+              {t.nav.tickets}
             </a>
           </div>
         </nav>
@@ -856,7 +788,9 @@ function App() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#signup"
+                href={TICKET_URL}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-base font-extrabold text-us-navy transition hover:bg-[#EEF3FF]"
               >
                 {t.hero.join}
@@ -1046,58 +980,6 @@ function App() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="signup" className="bg-white">
-        <div className="section-shell grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
-          <SectionHeading eyebrow={t.signup.eyebrow} title={t.signup.title} text={t.signup.text} />
-          <form className="grid gap-4 rounded-2xl border border-us-blue/10 bg-us-cream p-5 shadow-card md:p-6" onSubmit={handleSubmit} noValidate>
-            <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-extrabold text-us-blue">{t.signup.email}</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                aria-invalid={status === "error"}
-                className="h-12 w-full rounded-md border border-us-blue/20 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/40 focus:outline-none focus:ring-2 focus:ring-us-red"
-              />
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className="mb-2 block text-sm font-extrabold text-us-blue">{t.signup.language}</label>
-                <LanguageSelector language={language} onChange={setLanguage} variant="form" />
-              </div>
-
-              <div>
-                <label htmlFor="window" className="mb-2 block text-sm font-extrabold text-us-blue">{t.signup.visitDates}</label>
-                <input
-                  id="window"
-                  type="text"
-                  placeholder={t.signup.visitDatesPlaceholder}
-                  value={travelStart && travelEnd ? `${travelStart} to ${travelEnd}` : ""}
-                  onChange={() => undefined}
-                  className="h-12 w-full rounded-md border border-us-blue/20 bg-white px-4 text-base text-us-navy placeholder:text-us-navy/40 focus:outline-none focus:ring-2 focus:ring-us-red"
-                />
-                <p className="mt-2 text-xs font-semibold text-us-navy/50">{t.signup.visitHint}</p>
-              </div>
-            </div>
-
-            <p className={status === "error" ? "text-sm font-bold text-red-700" : "text-sm font-bold text-us-navy/60"} aria-live="polite">
-              {signupMessage}
-            </p>
-
-            <button
-              type="submit"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-us-blue px-6 py-3 text-base font-extrabold text-white transition hover:bg-us-navy"
-            >
-              <Languages className="h-5 w-5" aria-hidden="true" />
-              {t.signup.button}
-            </button>
-          </form>
         </div>
       </section>
 
